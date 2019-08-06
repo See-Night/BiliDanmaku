@@ -8,13 +8,17 @@
 再有就是减轻房管的压力  
 我，DD（X），用业余时间写了这么一个小东西，方便弹幕记录  
   
-*由于本身没学过python所以相当于现学现用，代码写得辣鸡的一批  
+***由于本身没学过python所以相当于现学现用，代码写得辣鸡的一批  
   
-#### 使用方法
-运行auto_get.sh  
-`sudo auto_get.sh + 参数`  
-可选参数：  
+#### 安装方法
 ```
+$ git clone https://github.com/Dreammer12138/CommentsLogByMySQL.git
+```
+
+#### 使用方法
+```
+sudo auto_get.sh + 参数  
+可选参数：  
 start     启动
 stop      停止
 restart   重启
