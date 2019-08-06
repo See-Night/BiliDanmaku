@@ -12,15 +12,15 @@
   
 #### 安装方法
 ```
-$ git clone https://github.com/Dreammer12138/CommentsLogByMySQL.git
+$ wget https://dreammer12138.github.io/Documents/setup.sh
 ```
 
 #### 使用方法
 ```
-sudo auto_get.sh + 参数  
+$ sudo auto_get.sh + 参数  
 可选参数：  
-start     启动
-stop      停止
-restart   重启
+  start     启动
+  stop      停止
+  restart   重启
 ```
 建议使用screen单独运行
