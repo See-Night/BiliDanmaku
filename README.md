@@ -14,7 +14,7 @@
 #### 安装方法
 ```
 Ubuntu/Deepin/Debian：
-$ wget https://dreammer12138.github.io/Documents/setup.sh
+$ wget https://dreammer12138.github.io/Documents/CommentsLogByMySQL/setup.sh
 $ sudo chmod 777 ./setup.sh
 $ ./setup.sh
 
@@ -35,8 +35,10 @@ $ sudo auto_get.sh + 参数
   restart   重启
 ```
 建议使用screen单独运行
-
-#### 缺点
-目前还没有解决post请求所需的cookie每7天会更新一次的问题，现在只能手动更改文件  
-最近应该就会增加自动读取cookie的功能的  
-稍安勿躁  
+```
+创建新进程
+$ screen -S <你的进程名称>
+后台运行进程 Ctrl + A + D
+返回进程
+$ screen -R <你的进程名称>
+```

@@ -33,8 +33,8 @@ while  True:
 	#直播间信息，csrf和csrf_token每7天会更新，需要手动更换
 	form_data = {
 		"roomid": "12235923",
-		"csrf_token": "cb113d9cf8137def21f96cee184e686a",
-		"csrf": "cb113d9cf8137def21f96cee184e686a",
+		"csrf_token": "",
+		"csrf": "",
 		"visit_id": ""
 	}
 
