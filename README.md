@@ -13,32 +13,31 @@
   
 #### 安装方法
 ```
-Ubuntu/Deepin/Debian：
-$ wget https://dreammer12138.github.io/Documents/CommentsLogByMySQL/setup.sh
+apt：
+$ wget https://dreammer12138.github.io/Documents/CommentsLogByMySQL/apt-setup.sh
 $ sudo chmod 777 ./setup.sh
 $ ./setup.sh
 
-CentOS:
-$ sudo yum -y install mysql-server mysql-client
-然后自行安装python3，网上教程一抓一大把这里就不详细说明了
-然后安装python库
-$ sudo pip3 install pymysql
-$ sudo pip3 install requests
+yum:
+$ wget https://dreammer12138.github.io/Documents/CommentsLogByMySQL/yum-setup.sh
+$ sudo chmod 777 ./setup.sh
+$ ./setup.sh
+
 ```
+
+安装位置：`/usr/CommentsLogByMySQL/`  
 
 #### 使用方法
 ```
-$ sudo auto_get.sh + 参数  
+$ sudo /usr/CommentsLogByMySQL/auto_get.sh + 参数  
 可选参数：  
   start     启动
   stop      停止
   restart   重启
 ```
-建议使用screen单独运行
-```
-创建新进程
-$ screen -S <你的进程名称>
-后台运行进程 Ctrl + A + D
-返回进程
-$ screen -R <你的进程名称>
-```
+建议使用screen单独运行  
+
+创建新进程 `$ screen -S <你的进程名称>`  
+后台运行进程 `Ctrl + A + D`  
+返回进程 `$ screen -R <你的进程名称>`  
+
