@@ -56,8 +56,7 @@ while  True:
 			cursor.execute(SQL)
 		#匹配弹幕信息，将新的弹幕插入到表中
 		for comments_msg in result:
-			SQL = 'select ts from Comments' + str(comments_msg['timeline'][0:10].replace('-', '')) + ' where ts="' + str(comments_msg['check_info']['ts']) + '";'
-			cursor.execute(SQL)
+			SQL = 'select ts from Comments' + str(comments_msg['timeline'][0:10].replace('-', '')) + ' where ts="' + str(comments_msg['check_info']['ts']) + '" and ct="' + str(comments_msg['check_info']['ct']) + '";'
 			res_select = cursor.fetchall()
 			if res_select != ():
 				pass
