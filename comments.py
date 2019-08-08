@@ -20,11 +20,11 @@ def table_exists(con, table_name):
 while  True:
 	#数据库连接信息
 	conn = pymysql.connect(
-		host = '127.0.0.1',
+		host = 'localhost',
 		port = 3306,
-		user = 'root',
-		password = '123456',
-		db = 'Bili_Comments',
+		user = 'root',           #MySQL用户名
+		password = '123456',     #MySQL密码
+		db = 'Bili_Comments',    #数据库名称
 		charset = 'utf8'
 	)
 

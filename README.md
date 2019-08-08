@@ -15,13 +15,53 @@
 ```
 apt：
 $ wget https://dreammer12138.github.io/Documents/CommentsLogByMySQL/apt-setup.sh
-$ sudo chmod 777 ./setup.sh
-$ ./setup.sh
+$ sudo chmod 777 ./apt-setup.sh
+$ ./apt-setup.sh
 
 yum:
 $ wget https://dreammer12138.github.io/Documents/CommentsLogByMySQL/yum-setup.sh
-$ sudo chmod 777 ./setup.sh
-$ ./setup.sh
+$ sudo chmod 777 ./yum-setup.sh
+$ ./yum-setup.sh
+
+```
+
+#### 配置
+```
+** MySQL **  
+
+配置MySQL用户密码
+$ sudo mysql
+>> use mysql;
+>> update user set plugin="mysql_native_password" where user="root";
+>> flush privileges;
+>> update user set authentication_string=PASSWORD("新密码") where user="root";
+>> flush privileges;
+>> exit;
+
+重启MySQL
+$ sudo /etc/init.d/mysql restart
+
+登录MySQL（不使用sudo权限）,如果可以登录进去就说明配置完成
+$ mysql -u root -p
+
+新建数据库
+>> create database Bili_Comments character set 'utf8' collate 'utf8_general_ci';
+>> exit;
+
+** Python **
+
+$ sudo vim /usr/CommentsLogByMySQL/comments.py
+
+将数据库信息中的密码改成你刚才设置的密码，保存退出
+
+	conn = pymysql.connect(
+			host = 'localhost',
+			port = 3306,
+			user = 'root',           #MySQL用户名
+			password = '123456',     #MySQL密码 << 改这个，注意不要忘了用引号
+			db = 'Bili_Comments',    #数据库名称
+			charset = 'utf8'
+		)
 
 ```
 
