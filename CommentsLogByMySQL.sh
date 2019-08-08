@@ -6,7 +6,7 @@ live=0
 
 while :
 do
-	MSG=`sudo python3 ./check.py`
+	MSG=`sudo python3 /usr/CommentsLogByMySQL/check.py`
 	if [ $MSG = $liveon ]
 		then
 		if [ $live == 0 ]
