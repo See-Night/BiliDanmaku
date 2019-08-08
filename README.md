@@ -1,6 +1,7 @@
 # CommentsLogByMySQL
 用MySQL来储存记录直播间弹幕信息，供房管查询使用
-### 通过python脚本将直播间弹幕扒下来存在数据库中，**需要MySQL支持**
+### 通过python脚本将直播间弹幕扒下来存在数据库中，**需要MySQL支持**，已实装B站直播自动检测功能
+
 ***仅支持BILIBILI直播***
 
 身为一名房管（DD），平时总有很多人私信询问“啊，我只在直播间发了一个“xxx”怎么就被封了，是不是误判了”  
@@ -10,6 +11,7 @@
 我，DD（X），用业余时间写了这么一个小东西，方便弹幕记录  
   
 ***由于本身没学过python所以相当于现学现用，代码写得辣鸡的一批***  
+
 **由于我本身是mea gachi所以所有的配置是以mea直播间为范本的，如需在其他直播间使用请自行更改脚本，需要更改的位置已在脚本中指出**
   
 #### 安装方法
@@ -107,5 +109,5 @@ F12打开资源管理器，选择上面Network选项卡，F5刷新，搜索getRo
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151616.png)  
 
 单击搜索结果，在详细信息中找到Request Headers -> Referer，然后将上面那行代码内容替换  
-  
+
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151635.png)  
