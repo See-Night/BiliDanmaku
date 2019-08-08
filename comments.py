@@ -30,7 +30,7 @@ while  True:
 
 	cursor = conn.cursor()
 
-	#直播间信息，csrf和csrf_token每7天会更新，需要手动更换
+	#直播间信息，需要手动更改roomid
 	form_data = {
 		"roomid": "12235923",
 		"csrf_token": "",

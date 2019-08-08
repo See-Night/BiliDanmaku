@@ -10,6 +10,7 @@
 我，DD（X），用业余时间写了这么一个小东西，方便弹幕记录  
   
 ***由于本身没学过python所以相当于现学现用，代码写得辣鸡的一批***  
+**由于我本身是mea gachi所以所有的配置是以mea直播间为范本的，如需在其他直播间使用请自行更改脚本，需要更改的位置已在脚本中指出**
   
 #### 安装方法
 ```
@@ -69,11 +70,7 @@ $ sudo vim /usr/CommentsLogByMySQL/comments.py
 
 #### 使用方法
 ```
-$ sudo /usr/CommentsLogByMySQL/auto_get.sh + 参数  
-可选参数：  
-  start     启动
-  stop      停止
-  restart   重启
+$ sudo /usr/CommentsLogByMySQL/CommentsLogByMySQL.sh
 ```
 建议使用screen单独运行  
 
@@ -81,3 +78,26 @@ $ sudo /usr/CommentsLogByMySQL/auto_get.sh + 参数
 后台运行进程 `Ctrl + A + D`  
 返回进程 `$ screen -R <你的进程名称>`  
 
+#### 自定义直播间部署
+自定义直播间需要更改`comments.py`和`check.py`两个文件  
+
+*comments.py*
+```
+form_data = {
+		"roomid": "12235923",         << 改这里，roomid即为直播间号码
+		"csrf_token": "",
+		"csrf": "",
+		"visit_id": ""
+	}
+```
+
+*check.py*
+```
+headers['Referer'] = 'https://space.bilibili.com/349991143?from=search&seid=16603871590950900377'
+```
+打开个人空间  
+![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151510.png)  
+F12打开资源管理器，选择上面Network选项卡，F5刷新，搜索getRoom  
+![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151516.png)  
+单击搜索结果，在详细信息中找到Request Headers -> Referer，然后将上面那行代码内容替换  
+![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151535.png)  
