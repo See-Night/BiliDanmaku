@@ -57,11 +57,13 @@ while  True:
 		#匹配弹幕信息，将新的弹幕插入到表中
 		for comments_msg in result:
 			SQL = 'select ts from Comments' + str(comments_msg['timeline'][0:10].replace('-', '')) + ' where ts="' + str(comments_msg['check_info']['ts']) + '" and ct="' + str(comments_msg['check_info']['ct']) + '";'
+			cursor.execute(SQL)
 			res_select = cursor.fetchall()
 			if res_select != ():
 				pass
 			else:
 				SQL = 'insert into Comments' + comments_msg['timeline'][0:10].replace('-', '') + '(Nickname, UID, text, ct, ts) VALUES("' + comments_msg['nickname'] + '",' + '%d'%comments_msg['uid'] + ',"' + comments_msg['text'] + '","' + comments_msg['check_info']['ct'] + '","' + '%d'%comments_msg['check_info']['ts'] + '");'
+				print(SQL)
 				cursor.execute(SQL)
 				conn.commit()
 				print(comments_msg['nickname'] + ':' + comments_msg['text'])
