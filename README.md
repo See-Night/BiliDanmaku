@@ -72,7 +72,7 @@ $ sudo vim /usr/CommentsLogByMySQL/comments.py
 
 #### 使用方法
 ```
-$ sudo /usr/CommentsLogByMySQL/CommentsLogByMySQL.sh
+$ sudo bash /usr/CommentsLogByMySQL/CommentsLogByMySQL.sh
 ```
 建议使用screen单独运行  
 
