@@ -63,7 +63,6 @@ while  True:
 				pass
 			else:
 				SQL = 'insert into Comments' + comments_msg['timeline'][0:10].replace('-', '') + '(Nickname, UID, text, ct, ts) VALUES("' + comments_msg['nickname'] + '",' + '%d'%comments_msg['uid'] + ',"' + comments_msg['text'] + '","' + comments_msg['check_info']['ct'] + '","' + '%d'%comments_msg['check_info']['ts'] + '");'
-				print(SQL)
 				cursor.execute(SQL)
 				conn.commit()
 				print(comments_msg['nickname'] + ':' + comments_msg['text'])
