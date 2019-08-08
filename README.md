@@ -82,6 +82,7 @@ $ sudo /usr/CommentsLogByMySQL/CommentsLogByMySQL.sh
 自定义直播间需要更改`comments.py`和`check.py`两个文件  
 
 *comments.py*
+
 ```
 form_data = {
 		"roomid": "12235923",         << 改这里，roomid即为直播间号码
@@ -92,12 +93,19 @@ form_data = {
 ```
 
 *check.py*
+
 ```
 headers['Referer'] = 'https://space.bilibili.com/349991143?from=search&seid=16603871590950900377'
 ```
+
 打开个人空间  
+
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151510.png)  
+
 F12打开资源管理器，选择上面Network选项卡，F5刷新，搜索getRoom  
+
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151616.png)  
+
 单击搜索结果，在详细信息中找到Request Headers -> Referer，然后将上面那行代码内容替换  
+  
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151635.png)  
