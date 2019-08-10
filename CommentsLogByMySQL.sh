@@ -4,12 +4,12 @@ liveon="正在直播"
 liveoff="直播停止"
 live=0
 
-accpet=`cat ./config.json | jq -r '.getInfo.headers.Accept'`
-origin=`cat ./config.json | jq -r '.getInfo.headers.Origin'`
-referer=`cat ./config.json | jq -r '.getInfo.headers.Referer'`
-useragent=`cat ./config.json | jq -r '.getInfo.headers."User-Agent"'`
-url=`cat ./config.json | jq -r '.getInfo.url'`
-roomid=`cat ./config.json | jq -r '.comments.room.roomid'`
+accpet=`cat /usr/CommentsLogByMySQL/config.json | jq -r '.getInfo.headers.Accept'`
+origin=`cat /usr/CommentsLogByMySQL/config.json | jq -r '.getInfo.headers.Origin'`
+referer=`cat /usr/CommentsLogByMySQL/config.json | jq -r '.getInfo.headers.Referer'`
+useragent=`cat /usr/CommentsLogByMySQL/config.json | jq -r '.getInfo.headers."User-Agent"'`
+url=`cat /usr/CommentsLogByMySQL/config.json | jq -r '.getInfo.url'`
+roomid=`cat /usr/CommentsLogByMySQL/config.json | jq -r '.comments.room.roomid'`
 
 var=`curl -s -H "$accpet" -H "$origin" -H "$referer" -H "useragent" $url | jq -r '.data.name'`
 echo "正在监控$var的直播间"

@@ -6,7 +6,7 @@ import re
 
 cache = {}
 
-config_file = open('./config.json', encoding = "utf-8")
+config_file = open('/usr/CommentsLogByMySQL/config.json', encoding = "utf-8")
 config = json.loads(config_file.read())['comments']
 
 #检查表是否存在，存在则返回1，不存在则返回0

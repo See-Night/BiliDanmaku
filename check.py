@@ -9,7 +9,7 @@ def changelive(l):
 	global live
 	live = l
 
-config_file = open('./config.json', encoding = "utf-8")
+config_file = open('/usr/CommentsLogByMySQL/config.json', encoding = "utf-8")
 config = json.loads(config_file.read())['check']
 
 headers = {}

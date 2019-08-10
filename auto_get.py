@@ -23,7 +23,7 @@ def kill_target():
 while True :
 	localtime = time.localtime(time.time())
 	minute_begin = localtime.tm_min;
-	os.system('sudo python3 comments.py &')
+	os.system('sudo python3 /usr/CommentsLogByMySQL/comments.py &')
 	time.sleep(600)
 	p = kill_target()
 	print(p)
