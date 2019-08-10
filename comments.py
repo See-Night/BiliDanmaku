@@ -1,9 +1,13 @@
 import requests
 import pymysql
 import datetime
+import json
 import re
 
 cache = {}
+
+config_file = open('./config.json', encoding = "utf-8")
+config = json.loads(config_file.read())['comments']
 
 #检查表是否存在，存在则返回1，不存在则返回0
 def table_exists(con, table_name):
@@ -18,35 +22,45 @@ def table_exists(con, table_name):
 		return 0
 
 while  True:
+
 	#数据库连接信息
 	conn = pymysql.connect(
-		host = 'localhost',
-		port = 3306,
-		user = 'root',           #MySQL用户名
-		password = '123456',     #MySQL密码
-		db = 'Bili_Comments',    #数据库名称
-		charset = 'utf8'
+		#host = 'localhost',
+		host = config['mysql']['host'],
+		#port = 3306,
+		port = config['mysql']['port'],
+		#user = 'root',           #MySQL用户名
+		user = config['mysql']['user'],
+		#password = '123456',     #MySQL密码
+		password = config['mysql']['password'],
+		#db = 'Bili_Comments',    #数据库名称
+		db = config['mysql']['db'],
+		charset = config['mysql']['charset']
+		#charset = 'utf8'
 	)
 
 	cursor = conn.cursor()
 
 	#直播间信息，需要手动更改roomid
-	form_data = {
-		"roomid": "12235923",
-		"csrf_token": "",
-		"csrf": "",
-		"visit_id": ""
-	}
+	#form_data = {
+	#	"roomid": "12235923",
+	#	"csrf_token": "",
+	#	"csrf": "",
+	#	"visit_id": ""
+	#}
+	form_data = config['room']
 
 	#post请求中的headers
-	headers = {}
-	headers['Contect-Type'] = 'application/x-www-form-urlencoded'
-	headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
-	headers['Connection'] = 'close'
+	#headers = {}
+	#headers['Contect-Type'] = 'application/x-www-form-urlencoded'
+	#headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+	#headers['Connection'] = 'close'
+	headers = config['headers']
 
 	try:
 		#post请求
-		res = requests.post("https://api.live.bilibili.com/ajax/msg", headers = headers, data = form_data)
+		#res = requests.post("https://api.live.bilibili.com/ajax/msg", headers = headers, data = form_data)
+		res = requests.post(config['url'], headers = headers, data = form_data)
 		#获取直播间弹幕
 		result = res.json()['data']['room']
 		#获取当前时间，用来创建表

@@ -27,11 +27,13 @@ $ sudo chmod 777 ./yum-setup.sh
 $ ./yum-setup.sh
 
 ```
+  
+安装位置：`/usr/CommentsLogByMySQL/`  
 
-#### 配置
-```
+#### 配置  
+
 ** MySQL **  
-
+```
 配置MySQL用户密码
 $ sudo mysql
 >> use mysql;
@@ -51,57 +53,55 @@ $ mysql -u root -p
 >> create database Bili_Comments character set 'utf8' collate 'utf8_general_ci';
 >> exit;
 
-** Python **
-
-$ sudo vim /usr/CommentsLogByMySQL/comments.py
-
-将数据库信息中的密码改成你刚才设置的密码，保存退出
-
-	conn = pymysql.connect(
-			host = 'localhost',
-			port = 3306,
-			user = 'root',           #MySQL用户名
-			password = '123456',     #MySQL密码 << 改这个，注意不要忘了用引号
-			db = 'Bili_Comments',    #数据库名称
-			charset = 'utf8'
-		)
-
 ```
+  
+** config.json **  
+  
+***所有的配置信息都存储在config.json文件中，修改前请务必备份好原配置***
 
-安装位置：`/usr/CommentsLogByMySQL/`  
-
-#### 使用方法
+数据库储存：修改“comments”->“mysql”  
 ```
-$ sudo bash /usr/CommentsLogByMySQL/CommentsLogByMySQL.sh
+"mysql": {
+	"host": "localhost",		<-数据库地址，如果是本地数据库就默认不要修改
+	"port": 3306,				<-数据库端口，默认3306，不建议修改
+	"user": "root",				<-mysql用户名，不建议修改
+	"password": "123456",		<-mysql密码，根据配置数据库时设置的密码修改
+	"db": "Bili_Comments",		<-数据库名，根据配置数据库时新建的数据库修改
+	"charset": "utf8"			<-数据库数据编码方式，默认utf-8，不建议修改
+}
 ```
-建议使用screen单独运行  
-
-创建新进程 `$ screen -S <你的进程名称>`  
-后台运行进程 `Ctrl + A + D`  
-返回进程 `$ screen -R <你的进程名称>`  
-
-#### 自定义直播间部署
-自定义直播间需要更改`comments.py`和`check.py`两个文件  
-
-*comments.py*
-
+  
+弹幕姬配置：修改“comments”->“room”
 ```
-form_data = {
-		"roomid": "12235923",         << 改这里，roomid即为直播间号码
-		"csrf_token": "",
-		"csrf": "",
-		"visit_id": ""
-	}
+"room": {
+	"roomid": "12235923",		<-这里填写直播间号码
+	"csrf_token": "",
+	"csrf": "",
+	"visit_id": ""
+}
 ```
-
-*check.py*
-
+  
+直播检测配置：修改“check”和“getInfo”
 ```
-headers['Referer'] = 'https://space.bilibili.com/349991143?from=search&seid=16603871590950900377'
-
-req = requests.get("https://api.live.bilibili.com/room/v1/Room/getRoomInfoOld?mid=349991143")
+"check": {
+	"headers": {
+		"Accept": "application/json, text/plain, */*",
+		"Origin": "https://space.bilibili.com",
+		"Referer": "https://space.bilibili.com/349991143",								<-修改此处
+		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
+	},
+	"url": "https://api.live.bilibili.com/room/v1/Room/getRoomInfoOld?mid=349991143"	<-修改此处只需要把mid后面的那串数字修改为主播个人空间的号码即可
+},
+"getInfo": {
+	"headers": {
+		"Accept": "application/json, text/plain, */*",
+		"Origin": "https://space.bilibili.com",
+		"Referer": "https://space.bilibili.com/349991143",								<-修改此处
+		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
+	},
+	"url": "https://api.bilibili.com/x/space/acc/info?mid=349991143&jsonp=jsonp"		<-修改此处只需要把mid后面的那串数字修改为主播个人空间的号码即可
+}
 ```
-
 打开个人空间  
 
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151510.png)  
@@ -115,3 +115,15 @@ F12打开资源管理器，选择上面Network选项卡，F5刷新，搜索getRo
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190810101958.png)
 
 ![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151635.png)  
+
+#### 使用方法
+```
+$ sudo bash /usr/CommentsLogByMySQL/CommentsLogByMySQL.sh
+```
+建议使用screen单独运行  
+
+创建新进程 `$ screen -S <你的进程名称>`  
+后台运行进程 `Ctrl + A + D`  
+返回进程 `$ screen -R <你的进程名称>`  
+
+
