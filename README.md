@@ -102,20 +102,7 @@ $ mysql -u root -p
 	"url": "https://api.bilibili.com/x/space/acc/info?mid=349991143&jsonp=jsonp"		<-修改此处只需要把mid后面的那串数字修改为主播个人空间的号码即可
 }
 ```
-打开个人空间  
-
-![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151510.png)  
-
-F12打开资源管理器，选择上面Network选项卡，F5刷新，搜索getRoom  
-
-![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151616.png)  
-
-单击搜索结果，在详细信息中找到Request Headers -> Referer，然后将上面那行代码内容替换  
-
-![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190810101958.png)
-
-![kaguramea](https://dreammer12138.github.io/Documents/CommentsLogByMySQL/dict/20190808151635.png)  
-
+  
 #### 使用方法
 ```
 $ sudo bash /usr/CommentsLogByMySQL/CommentsLogByMySQL.sh
