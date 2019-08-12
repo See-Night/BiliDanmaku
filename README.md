@@ -63,11 +63,11 @@ $ mysql -u root -p
 ```
 "mysql": {
 	"host": "localhost",		<-数据库地址，如果是本地数据库就默认不要修改
-	"port": 3306,				<-数据库端口，默认3306，不建议修改
-	"user": "root",				<-mysql用户名，不建议修改
+	"port": 3306,			<-数据库端口，默认3306，不建议修改
+	"user": "root",			<-mysql用户名，不建议修改
 	"password": "123456",		<-mysql密码，根据配置数据库时设置的密码修改
 	"db": "Bili_Comments",		<-数据库名，根据配置数据库时新建的数据库修改
-	"charset": "utf8"			<-数据库数据编码方式，默认utf-8，不建议修改
+	"charset": "utf8"		<-数据库数据编码方式，默认utf-8，不建议修改
 }
 ```
   
@@ -87,7 +87,7 @@ $ mysql -u root -p
 	"headers": {
 		"Accept": "application/json, text/plain, */*",
 		"Origin": "https://space.bilibili.com",
-		"Referer": "https://space.bilibili.com/349991143",								<-修改此处
+		"Referer": "https://space.bilibili.com/349991143",				<-修改此处
 		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
 	},
 	"url": "https://api.live.bilibili.com/room/v1/Room/getRoomInfoOld?mid=349991143"	<-修改此处只需要把mid后面的那串数字修改为主播个人空间的号码即可
@@ -96,7 +96,7 @@ $ mysql -u root -p
 	"headers": {
 		"Accept": "application/json, text/plain, */*",
 		"Origin": "https://space.bilibili.com",
-		"Referer": "https://space.bilibili.com/349991143",								<-修改此处
+		"Referer": "https://space.bilibili.com/349991143",				<-修改此处
 		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
 	},
 	"url": "https://api.bilibili.com/x/space/acc/info?mid=349991143&jsonp=jsonp"		<-修改此处只需要把mid后面的那串数字修改为主播个人空间的号码即可
