@@ -22,14 +22,14 @@ do
 		then
 		if [ $live == 0 ]
 			then
-			sudo ./auto_get.sh start &
+			sudo /usr/CommentsLogByMySQL//auto_get.sh start &
 			live=1
 		fi
 	elif [ $MSG = $liveoff ]
 		then
 		if [ $live == 1 ]
 			then
-			sudo ./auto_get.sh stop &
+			sudo /usr/CommentsLogByMySQL//auto_get.sh stop &
 			live=0
 		fi
 	fi

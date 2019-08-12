@@ -11,15 +11,15 @@ if [ "$parameter" = "$start" ];
 	sudo python3 /usr/CommentsLogByMySQL/auto_get.py
 elif [ "$parameter" = "$stop" ];
 	then
-	PID=`sudo ps -ef | grep "python3 comments.py" | grep -v "grep" | awk '{print $2}'`
+	PID=`sudo ps -ef | grep "python3 /usr/CommentsLogByMySQL/comments.py" | grep -v "grep" | awk '{print $2}'`
 	sudo kill -9 $PID
-	APID=`sudo ps -ef | grep "python3 auto_get.py" | grep -v "grep" | awk '{print $2}'`
+	APID=`sudo ps -ef | grep "python3 /usr/CommentsLogByMySQL/auto_get.py" | grep -v "grep" | awk '{print $2}'`
 	sudo kill -9 $APID
 elif [ "$parameter" = "$restart" ];
 	then
-	PID=`sudo ps -ef | grep "python3 comments.py" | grep -v "grep" | awk '{print $2}'`
+	PID=`sudo ps -ef | grep "python3 /usr/CommentsLogByMySQL/comments.py" | grep -v "grep" | awk '{print $2}'`
 	sudo kill -9 $PID
-	APID=`sudo ps -ef | grep "python3 auto_get.py" | grep -v "grep" | awk '{print $2}'`
+	APID=`sudo ps -ef | grep "python3 /usr/CommentsLogByMySQL/auto_get.py" | grep -v "grep" | awk '{print $2}'`
 	sudo kill -9 $APID
 	sudo python3 /usr/CommentsLogByMySQL/auto_get.py
 fi

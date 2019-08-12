@@ -10,7 +10,7 @@ def kill_target():
 	#shell_run = 'sudo ps aux | grep {}'.format(target)
 	#out = os.popen(shell_run).read()
 	#return out
-	shell_run = 'sudo ps -ef | grep "python3 comments.py" | grep -v "grep" | awk \'{print $2}\''
+	shell_run = 'sudo ps -ef | grep "python3 /usr/CommentsLogByMySQL/comments.py" | grep -v "grep" | awk \'{print $2}\''
 	out = os.popen(shell_run).read()
 	pid = list(map(int, out.split()))
 	return pid
