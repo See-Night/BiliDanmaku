@@ -90,7 +90,7 @@ $ mysql -u root -p
 		"Referer": "https://space.bilibili.com/349991143",				<-修改此处
 		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
 	},
-	"url": "https://api.live.bilibili.com/room/v1/Room/getRoomInfoOld?mid=349991143"	<-修改此处只需要把mid后面的那串数字修改为主播个人空间的号码即可
+	"url": "https://api.live.bilibili.com/room/v1/Room/getRoomInfoOld?mid=349991143"	<-修改此处只需要把mid后面的那串数字修改为主播UID即可
 },
 "getInfo": {
 	"headers": {
@@ -99,7 +99,7 @@ $ mysql -u root -p
 		"Referer": "https://space.bilibili.com/349991143",				<-修改此处
 		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
 	},
-	"url": "https://api.bilibili.com/x/space/acc/info?mid=349991143&jsonp=jsonp"		<-修改此处只需要把mid后面的那串数字修改为主播个人空间的号码即可
+	"url": "https://api.bilibili.com/x/space/acc/info?mid=349991143&jsonp=jsonp"		<-修改此处只需要把mid后面的那串数字修改为主播UID即可
 }
 ```
   
