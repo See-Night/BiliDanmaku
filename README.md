@@ -1,5 +1,6 @@
 # CommentsLogByMySQL
 用MySQL来储存记录直播间弹幕信息，供房管查询使用
+**目前仅支持Linux系统，没办法bat我真写不来**
 ### 通过python脚本将直播间弹幕扒下来存在数据库中，**需要MySQL支持**，已实装B站直播自动检测功能
 
 ***仅支持BILIBILI直播***
