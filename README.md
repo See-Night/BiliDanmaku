@@ -2,7 +2,7 @@
 
 BiliComment是一个命令行工具，用于记录bilibili**直播**弹幕。
 
-BiliComment is a CLI tools for recording bilibili live Danmu.
+BiliComment is a CLI tools for recording bilibili live Danmaku.
 
 ## Before use
 
