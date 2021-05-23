@@ -57,7 +57,7 @@ def decode(blob):
         'body': body
     }
 
-class bilichat(WebSocketClient):
+class bilicomment(WebSocketClient):
     def opened(self):
         self.send(encode(bytes('{"roomid":' + self.roomid + '}', encoding="utf8"), 7))
     def closed(self, code, reason=None):
@@ -82,7 +82,7 @@ class bilichat(WebSocketClient):
 try:
     if len(sys.argv) < 2:
         raise Exception("请输入直播间地址")
-    ws = bilichat('wss://broadcastlv.chat.bilibili.com/sub')
+    ws = bilicomment('wss://broadcastlv.chat.bilibili.com/sub')
     ws.roomid = sys.argv[1]
     print(ws.roomid)
     ws.connect()
