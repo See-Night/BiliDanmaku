@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 from bilibili_api.live import LiveDanmaku, get_room_info, get_room_play_info
 import sys
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 import json
 import time
+import os
 
 class DMK:
     def __init__(self, roomid):
         self.roomid = roomid
         self.realid = get_room_play_info(roomid)['room_id']
         self.title = get_room_info(self.realid)['room_info']['title']
-        self.excel = Workbook()
+        if '{title}-{roomid}.xlsx'.format(title=self.title, roomid=self.roomid) in os.listdir(os.path.dirname(os.path.realpath(__file__))):
+            self.excel = load_workbook('{title}-{roomid}.xlsx'.format(title=self.title, roomid=self.roomid))
+        else:
+            self.excel = Workbook()
         sheet = self.excel.active
         sheet['A1'] = 'user'
         sheet['B1'] = 'uid'
@@ -49,9 +53,8 @@ def main():
         )
         content = msg['data']['info'][1]
         print(
-            '[{roomid}][{user}][{uid}][{timestamp}]{content}'
+            '\033[34m[{timestamp}]\033[0m\033[36m[{user}]\033[0m\033[35m[{uid}]\033[0m {content}'
             .format(
-                roomid=roomid,
                 user=user,
                 uid=uid,
                 timestamp=timestamp,
@@ -65,6 +68,7 @@ def main():
     except KeyboardInterrupt:
         print('结束')
     finally:
+        print('正在保存，请勿终止')
         dmk.close()
 
 if __name__ == "__main__":
