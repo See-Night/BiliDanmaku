@@ -6,7 +6,21 @@ BiliComment is a CLI tools for recording bilibili live Danmaku.
 
 ## Before use
 
+在使用之前，请确保你的电脑安装了Python
+
 Before using it, you need to make sure your device has Python installed.
+
+### Download Code
+
+从Github上下载源代码。
+
+Download source code from github.
+
+or
+
+```shell
+$ git clone https://github.com/See-Night/BiliComment.git
+```
 
 ### Install package
 
