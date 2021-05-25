@@ -13,13 +13,19 @@ class DMK:
         self.title = get_room_info(self.realid)['room_info']['title']
         if '{title}-{roomid}.xlsx'.format(title=self.title, roomid=self.roomid) in os.listdir(os.path.dirname(os.path.realpath(__file__))):
             self.excel = load_workbook('{title}-{roomid}.xlsx'.format(title=self.title, roomid=self.roomid))
+            sheet = self.excel.active
         else:
             self.excel = Workbook()
-        sheet = self.excel.active
-        sheet['A1'] = 'user'
-        sheet['B1'] = 'uid'
-        sheet['C1'] = 'timestamp'
-        sheet['D1'] = 'content'
+            sheet = self.excel.active
+            sheet['A1'] = 'user'
+            sheet['B1'] = 'uid'
+            sheet['C1'] = 'timestamp'
+            sheet['D1'] = 'content'
+
+        sheet.column_dimensions['A'].width = 18
+        sheet.column_dimensions['B'].width = 12
+        sheet.column_dimensions['C'].width = 18
+        sheet.column_dimensions['D'].width = 40
 
     def push(self, danmaku):
         sheet = self.excel.active
