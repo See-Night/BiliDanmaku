@@ -1,2 +1,0 @@
-openpyxl
-bilibili_api
