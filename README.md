@@ -1,8 +1,8 @@
-# BiliComment
+# BiliDanmaku
 
-BiliComment是一个命令行工具，用于记录bilibili**直播**弹幕。
+BiliDanmaku是一个命令行工具，用于记录bilibili**直播**弹幕。
 
-BiliComment is a CLI tools for recording bilibili live Danmaku.
+BiliDanmaku is a CLI tools for recording bilibili live Danmaku.
 
 ## Before use
 
@@ -19,7 +19,7 @@ Download source code from github.
 or
 
 ```shell
-$ git clone https://github.com/See-Night/BiliComment.git
+$ git clone https://github.com/See-Night/BiliDanmaku.git
 ```
 
 ### Install package
@@ -31,7 +31,7 @@ $ pip install -r requirements.txt
 ## Usage
 
 ```shell
-$ ./BiliComment.py <roomid>
+$ ./BiliDanmaku.py <roomid>
 ```
 
 When it is stoped, it will generated a excel file.
