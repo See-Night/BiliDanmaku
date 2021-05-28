@@ -6,6 +6,7 @@ BiliDanmaku是一个记录[bilibili直播](https://live.bilibili.com/)弹幕的�
 
 <div id="danmaku_list"></div>
 
+<script src='public/jquery.min.js'></script>
 <script type="text/javascript">
     $().ready(() => {
         let danmaku_list = $('#danmaku_list');
