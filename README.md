@@ -2,8 +2,6 @@
 
 BiliDanmaku是一个记录[bilibili直播](https://live.bilibili.com/)弹幕的项目，你可以在这里下载弹幕记录。如果这里没有你需要的某个主播的弹幕记录，你可以在Github上提交Issues，我回头有空的时候会把直播间加进去的。
 
-<img src="https://i0.hdslb.com/bfs/face/6f4808c37c98a183452f590fedbe80fc45201f60.jpg" style="zoom:25%;" />
-
 ### 主播列表
 
 <div id="danmaku_list"></div>
@@ -30,7 +28,10 @@ BiliDanmaku是一个记录[bilibili直播](https://live.bilibili.com/)弹幕的�
                         	margin: '5px'
                     	})
                     	.attr({
-                            src: res.data[r].cover
+                            src: 'image/' + res.data[r].roomid + '.jpg'
+                        })
+                    	.click(() => {
+                            window.open('https://space.bilibili.com/' + res.data[r].roomid);
                         })
                 );         
             }
