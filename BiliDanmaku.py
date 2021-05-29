@@ -74,7 +74,6 @@ def main():
     except KeyboardInterrupt:
         print('结束')
     finally:
-        print('正在保存，请勿终止')
         dmk.close()
 
 if __name__ == "__main__":
