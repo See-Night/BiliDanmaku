@@ -24,6 +24,12 @@ Or clone source code from github by git.
 $ git clone https://github.com/See-Night/BiliDanmaku.git
 ```
 
+### Install package
+
+```shell
+$ pip install -r requirements.txt
+```
+
 ### Push image from docker hub
 
 你也可以从[docker hub](https://hub.docker.com/r/seenight/bilidanmaku)上获取镜像。
@@ -32,12 +38,6 @@ You also can push image from [docker hub](https://hub.docker.com/r/seenight/bili
 
 ```bash
 $ docker pull seenight/bilidanmaku
-```
-
-### Install package
-
-```shell
-$ pip install -r requirements.txt
 ```
 
 ## Usage
