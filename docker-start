@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ ! -d "$2/$1" ]; then
+	mkdir $2/$1
+fi
+
+docker run --name $1 -v $2/$1:/app/out -d seenight/bilidanmaku $1

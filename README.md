@@ -16,10 +16,22 @@ Before using it, you need to make sure your device has Python installed.
 
 Download source code from github.
 
-or
+或者从github上克隆源码。
+
+Or clone source code from github by git.
 
 ```shell
 $ git clone https://github.com/See-Night/BiliDanmaku.git
+```
+
+### Push image from docker hub
+
+你也可以从[docker hub](https://hub.docker.com/r/seenight/bilidanmaku)上获取镜像。
+
+You also can push image from [docker hub](https://hub.docker.com/r/seenight/bilidanmaku). 
+
+```bash
+$ docker pull seenight/bilidanmaku
 ```
 
 ### Install package
@@ -30,11 +42,27 @@ $ pip install -r requirements.txt
 
 ## Usage
 
+### Run script
+
 ```shell
 $ ./BiliDanmaku.py <roomid>
 ```
 
 When it is stoped, it will generated a excel file.
+
+### Run script that automate
+
+```bash
+$ ./app.py <roomid>
+```
+
+It will record danmaku automatically.
+
+### Run docker script
+
+```bash
+$ ./docker-start <roomid> <path to save>
+```
 
 ## Thanks
 
