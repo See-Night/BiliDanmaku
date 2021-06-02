@@ -21,7 +21,8 @@
 	border-left: 1px solid #dcdcdc;
 	border-right: 0;
 	height: 2.5rem;
-	min-width: 25rem;
+	min-width: 20rem;
+	max-width: 25rem;
 	padding: 20px;
 	border-radius: 20px 0 0 20px;
 }
