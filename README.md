@@ -28,10 +28,10 @@ BiliDanmaku是一个记录[bilibili直播](https://live.bilibili.com/)弹幕的�
                         	margin: '5px'
                     	})
                     	.attr({
-                            src: 'image/' + res.data[r].roomid + '.jpg'
+                            src: 'https://raw.githubusercontent.com/See-Night/BiliDanmaku/docs/image/' + res.data[r].roomid + '.jpg'
                         })
                     	.click(() => {
-                            window.open('https://space.bilibili.com/' + res.data[r].roomid);
+                            window.open('https://github.com/See-Night/BiliDanmaku/tree/logs/' + res.data[r].roomid);
                         })
                 );         
             }
