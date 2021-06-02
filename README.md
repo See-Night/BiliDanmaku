@@ -28,7 +28,10 @@ BiliDanmaku是一个记录[bilibili直播](https://live.bilibili.com/)弹幕的�
                         	margin: '5px'
                     	})
                     	.attr({
-                            src: 'https://kaguramea.net/media/danmaku/' + res.data[r].roomid + '.jpg'
+                            src: 'https://kaguramea.net/media/danmaku/' + res.data[r].roomid + '.jpg',
+                            loading: 'lazy',
+                            alt: '' + res.data[r].name,
+                            onerror: 'this.src="https://kaguramea.net/media/danmaku/default.png"'
                         })
                     	.click(() => {
                             window.open('https://github.com/See-Night/BiliDanmaku/tree/logs/' + res.data[r].roomid);
