@@ -20,7 +20,6 @@ $().ready(() => {
 					})
 					.attr({
 						onload: 'this.src = "https://kaguramea.net/media/danmaku/' + res.data[r].roomid + '.jpg"',
-						loading: 'lazy',
 						alt: '' + res.data[r].name,
 						src: 'https://kaguramea.net/media/danmaku/default.jpg'
 					})
