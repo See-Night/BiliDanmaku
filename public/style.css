@@ -20,11 +20,15 @@
 	border-bottom: 1px solid #dcdcdc;
 	border-left: 1px solid #dcdcdc;
 	border-right: 0;
+	width: 25rem;
 	height: 2.5rem;
-	min-width: 20rem;
-	max-width: 25rem;
 	padding: 20px;
 	border-radius: 20px 0 0 20px;
+}
+@media screen and (max-width: 25rem) {
+	#search > input {
+		width: 90%;
+	}
 }
 #search > input:focus-visible {
 	outline: none !important;
