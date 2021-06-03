@@ -19,7 +19,7 @@ $().ready(() => {
 						margin: '5px'
 					})
 					.attr({
-						onload: 'this.src = "https://kaguramea.net/media/danmaku/' + res.data[r].roomid + '.jpg"',
+						onload: 'loadIcon(this, ' + res.data[r].roomid + ')',
 						alt: '' + res.data[r].name,
 						src: 'https://kaguramea.net/media/danmaku/default.jpg'
 					})
@@ -41,3 +41,9 @@ $().ready(() => {
 		}
 	});
 });
+
+function loadIcon(t, roomid) {
+	if (t.src === "https://kaguramea.net/media/danmaku/" + roomid + ".webp")
+		return
+	else t.src = "https://kaguramea.net/media/danmaku/" + roomid + ".webp"
+}
