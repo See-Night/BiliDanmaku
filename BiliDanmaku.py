@@ -11,8 +11,8 @@ class DMK:
         self.roomid = roomid
         self.realid = get_room_play_info(roomid)['room_id']
         self.title = get_room_info(self.realid)['room_info']['title']
-        if 'out/{title}-{timestamp}.xlsx'.format(title=self.title, timestamp=time.strftime('%Y-%m-%d_%H:%M:%S', time.localtime())) in os.listdir(os.path.dirname(os.path.realpath(__file__))):
-            self.excel = load_workbook('out/{title}-{timestamp}.xlsx'.format(title=self.title, timestamp=time.strftime('%Y-%m-%d_%H:%M:%S', time.localtime())))
+        if 'out/{title}-{timestamp}.xlsx'.format(title=self.title, timestamp=time.strftime('%Y-%m-%d', time.localtime())) in os.listdir(os.path.dirname(os.path.realpath(__file__))):
+            self.excel = load_workbook('out/{title}-{timestamp}.xlsx'.format(title=self.title, timestamp=time.strftime('%Y-%m-%d', time.localtime())))
             sheet = self.excel.active
         else:
             self.excel = Workbook()
@@ -33,9 +33,9 @@ class DMK:
 
     def close(self):
         self.excel.save(
-            'out/{title}-{roomid}.xlsx'.format(
+            'out/{title}-{timestamp}.xlsx'.format(
                 title=self.title, 
-                roomid=self.roomid
+                timestamp=time.strftime('%Y-%m-%d', time.localtime())
             )
         )
 
