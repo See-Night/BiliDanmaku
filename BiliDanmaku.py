@@ -11,8 +11,8 @@ class DMK:
         self.roomid = roomid
         self.realid = get_room_play_info(roomid)['room_id']
         self.title = get_room_info(self.realid)['room_info']['title']
-        if 'out/{title}-{roomid}.xlsx'.format(title=self.title, roomid=self.roomid) in os.listdir(os.path.dirname(os.path.realpath(__file__))):
-            self.excel = load_workbook('out/{title}-{roomid}.xlsx'.format(title=self.title, roomid=self.roomid))
+        if 'out/{title}-{timestamp}.xlsx'.format(title=self.title, timestamp=time.strftime('%Y-%m-%d_%H:%M:%S', time.localtime())) in os.listdir(os.path.dirname(os.path.realpath(__file__))):
+            self.excel = load_workbook('out/{title}-{timestamp}.xlsx'.format(title=self.title, timestamp=time.strftime('%Y-%m-%d_%H:%M:%S', time.localtime())))
             sheet = self.excel.active
         else:
             self.excel = Workbook()
