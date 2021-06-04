@@ -19,7 +19,7 @@ async def app():
                 print('[{roomid}][{time}][INFO] 直播开始'.format(
                     roomid=roomid,
                     time=time.strftime(
-                        '%Y-%m-%d %H-%M-%S',
+                        '%Y-%m-%d %H:%M:%S',
                         time.localtime()
                     )
                 ))
@@ -27,6 +27,13 @@ async def app():
             elif live_status in [0, 2] and ison == True:
                 p.send_signal(signal.SIGINT)
                 ison = False
+                print('[{roomid}][{time}][INFO] 直播结束'.format(
+                    roomid=roomid,
+                    time=time.strftime(
+                        '%Y-%m-%d %H:%M:%S',
+                        time.localtime()
+                    )
+                ))
             time.sleep(120)
     except Exception as e:
         print(e)
