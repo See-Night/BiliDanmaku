@@ -4,15 +4,16 @@ import subprocess
 import time
 import os
 import signal
-from bilibili_api import live
+import asyncio
+from bilibili_api.live import LiveRoom
 
-def app():
+async def app():
     try:
         roomid = sys.argv[1]
         ison = False
 
         while True:
-            live_status = live.get_room_play_info(roomid)['live_status']
+            live_status = (await LiveRoom(roomid).get_room_play_info())['live_status']
             if live_status == 1 and ison == False:
                 ison = True
                 print('[{roomid}][{time}][INFO] 直播开始'.format(
@@ -27,10 +28,10 @@ def app():
                 p.send_signal(signal.SIGINT)
                 ison = False
             time.sleep(120)
-    except Exception:
+    except Exception as e:
+        print(e)
         return
     except KeyboardInterrupt:
         return
 
-if __name__ == "__main__":
-    app()
+asyncio.get_event_loop().run_until_complete(app())
