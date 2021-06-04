@@ -4,8 +4,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/re
 
 RUN apk update && apk add python3 py3-pip gcc g++ python3-dev tzdata libxml2-dev libxslt-dev libxml2 libxslt
 
-RUN ls /usr/share/zoneinfo
-
 RUN date
 
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
