@@ -84,7 +84,7 @@ async def main():
         )
         dmk.push([user, uid, timestamp, content])
 
-    room.add_event_listener('DANMU_MSG:4:0:2:2:2:0', on_danmu)
+    room.add_event_listener('DANMU_MSG', on_danmu)
 
     await dmk.mkexcel()
     await room.connect()
