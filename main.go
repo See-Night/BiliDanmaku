@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bilidanmaku/api"
 	"bilidanmaku/utils"
 	"encoding/json"
 	"errors"
@@ -20,17 +19,10 @@ func main() {
 	flag.Parse()
 
 	// Get true room ID
-	room_true_id, err := api.GetRoomID(*room_id)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-
-	// Get websocket configuration
-	host, key, err := api.GetWebsocketConf(room_true_id, map[string]string{
+	room_true_id, host, key, err := utils.GetWebsocketConf(*room_id, &(map[string]string{
 		"SESSDATA": *session_data,
 		"buvid3":   *buvid,
-	})
+	}))
 	if err != nil {
 		log.Println(err)
 		return
