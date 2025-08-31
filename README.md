@@ -2,7 +2,7 @@
 
 BiliDanmaku tui version. This project based bubbletea.
 
-![screenshot](./docs/screenshot.png)
+![screenshot](./docs/images/screenshot.png)
 
 ## Install
 
