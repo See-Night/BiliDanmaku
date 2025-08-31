@@ -122,11 +122,11 @@ func main() {
 				return
 			default:
 				msg := client.Receive()
-				marshaled, err := marshalMsg(msg)
+				username, message, err := marshalMsg(msg)
 				if err != nil {
 					continue
 				}
-				log.Printf("%s", marshaled)
+				log.Printf("%s: %s", username[1:len(username)-1], message[1:len(message)-1])
 			}
 		}
 	}()
@@ -146,20 +146,37 @@ func sendHeartBeat(client *utils.Client) {
 	client.Send(heartbeat_pkg.ToBytes())
 }
 
-func marshalMsg(msg []byte) ([]byte, error) {
-	var marshaled []byte
+func marshalMsg(msg []byte) ([]byte, []byte, error) {
+	var danmakuMsg []byte
 	var err error
 
 	cmd := utils.ReceiveMsg{}
 	json.Unmarshal(msg, &cmd)
 	if cmd.CMD != "DANMU_MSG" {
 		err = errors.New("not a danmu message")
-		return nil, err
+		return nil, nil, err
 	}
 
 	danmaku := utils.DanmakuMsg{}
 	json.Unmarshal(msg, &danmaku)
-	marshaled, err = json.Marshal(danmaku.Info[1])
+	danmakuMsg, err = json.Marshal(danmaku.Info[1])
+	if err != nil {
+		return nil, nil, err
+	}
 
-	return marshaled, err
+	var user []byte
+	user, err = json.Marshal(danmaku.Info[2])
+	if err != nil {
+		return nil, nil, err
+	}
+
+	var userinfo []any
+	json.Unmarshal(user, &userinfo)
+
+	var username []byte
+	username, err = json.Marshal(userinfo[1])
+
+	// log.Printf("%s %s", username, danmakuMsg)
+
+	return username, danmakuMsg, err
 }
