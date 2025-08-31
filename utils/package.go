@@ -22,11 +22,11 @@ func (pkg *Pkg) ToBytes() []byte {
 	pkg.packageLength = uint32(len(pkg.body) + 16)
 
 	var msg []byte
-	msg = append(msg, Uint32ToBytes(pkg.packageLength)...)
-	msg = append(msg, Uint16ToBytes(pkg.headerLength)...)
-	msg = append(msg, Uint16ToBytes(pkg.version)...)
-	msg = append(msg, Uint32ToBytes(pkg.operation)...)
-	msg = append(msg, Uint32ToBytes(pkg.sequence)...)
+	msg = append(msg, uint32ToBytes(pkg.packageLength)...)
+	msg = append(msg, uint16ToBytes(pkg.headerLength)...)
+	msg = append(msg, uint16ToBytes(pkg.version)...)
+	msg = append(msg, uint32ToBytes(pkg.operation)...)
+	msg = append(msg, uint32ToBytes(pkg.sequence)...)
 	msg = append(msg, pkg.body...)
 
 	return msg

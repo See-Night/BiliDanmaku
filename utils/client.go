@@ -70,7 +70,7 @@ func (c *Client) receiveLoop() {
 				return
 			}
 			if message[7] == 3 {
-				res, err := BrotliDecompress(message[16:])
+				res, err := brotliDecompress(message[16:])
 				if err != nil {
 					log.Printf("Brotli Decompress Error: %v", err)
 				}
@@ -105,7 +105,7 @@ func (c *Client) sliceRaws(raw []byte) [][]byte {
 	rawSlices := [][]byte{}
 	var cursor uint32 = 0
 	for uint64(cursor) < uint64(len(raw)) {
-		length := BytesToUint32(raw[cursor : cursor+8])
+		length := bytesToUint32(raw[cursor : cursor+8])
 		rawSlices = append(rawSlices, raw[cursor+16:cursor+length])
 		cursor += length
 	}
